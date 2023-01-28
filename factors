@@ -3,17 +3,16 @@
 from sys import argv
 
 
-def factorize(number):
+def factorize(number_to_check):
     """"find two small numbers that multiply to give a given number"""
     i = 2
 
-    if number < 2:
+    if number_to_check < 2:
         return
-
-    while number % i:
+    
+    while number_to_check % i:
         i += 1
-    print("{:.0f}={:.0f}*{:.0f}".format(number, number / i, i))
-
+    print("{:.0f}={:.0f}*{:.0f}".format(number_to_check, number_to_check / i, i))
 
 if len(argv) != 2:
     exit()
@@ -23,8 +22,8 @@ try:
         line = file.readline()
 
         while line != "":
-            number = int(line.split('\n')[0])
-            factorize(number)
+            number_to_check = int(line.split('\n')[0])
+            factorize(number_to_check)
             line = file.readline()
 except:
     pass
